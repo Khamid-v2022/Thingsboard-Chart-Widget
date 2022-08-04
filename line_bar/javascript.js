@@ -274,20 +274,7 @@ function adjustHexOpacity(color, opacity) {
 }  
     
 function draw() {      
-    let seriesMarkLine = {  data: [] }      
-    var data1 = [ 
-        [1640968951095, 2], 
-        [1640968961095, 4], 
-        [1640968971095, 6],         
-        [1640968981095, 8]     
-    ];     
-    var data2 = [         
-        [1640968951095, 1],         
-        [1640968961095, 2],         
-        [1640968971095, 3],        
-        [1640969981095, 4]     
-    ];       
-    
+    let seriesMarkLine = { data: [] };      
     myChart = echarts.init($('#echart', self.ctx.$container)[0]);       
     var legend = Array();     
     var series = Array();       

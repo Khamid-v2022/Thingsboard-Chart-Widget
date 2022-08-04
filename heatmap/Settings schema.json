@@ -1,0 +1,44 @@
+{
+    "schema": {
+        "type": "object",
+        "title": "Settings",
+        "properties": {
+            "showDataInHeatmap": {
+                "title": "Show Data in Heatmap",
+                "type": "boolean",
+                "default": true
+            },
+            "minScale": {
+                "title": "Min. Value",
+                "type": "number",
+                "default": 0
+            },
+            "maxScale": {
+                "title": "Max. Value",
+                "type": "number",
+                "default": 100
+            },
+            "numberOfDigits": {
+                "title": "Number of digits",
+                "type": "number",
+                "default": 1
+            },
+            "style": {
+                "title": "Type",
+                "type": "string",
+                "enum": [
+                    "Red",
+                    "Green"],
+                "default": "Red"
+            }
+               
+        }
+        },
+    "form": [
+        "showDataInHeatmap",
+        "minScale",
+        "maxScale",
+        "numberOfDigits",
+        "style"
+    ]
+}
