@@ -1,0 +1,132 @@
+{      
+    "schema": {          
+        "type": "object",          
+        "title": "Settings",          
+        "properties": {              
+            "yAxisLeftTitle": {                  
+                "title": "Title Left Y-Axis",                  
+                "type": "string",                  
+                "default": ""              
+            },              
+            "yAxisLeftUnit": {                  
+                "title": "Unit Left Y-Axis",                  
+                "type": "string",                  
+                "default": ""              
+            },              
+            "yAxisRightTitle": {                  
+                "title": "Title Right Y-Axis",                  
+                "type": "string",                  
+                "default": ""              
+            },              
+            "yAxisRightUnit": {                  
+                "title": "Unit Right Y-Axis",                  
+                "type": "string",                  
+                "default": ""              
+            },              
+            "showDataPoints": {                  
+                "title": "Show Data points",                  
+                "type": "boolean",                  
+                "default": false              
+            },              
+            "showPanZoomTool": {                  
+                "title": "Show Pan and Zoom tool",                  
+                "type": "boolean",                  
+                "default": true              
+            },                            
+            "yAxisLeftAutoScale": {                  
+                "title": "Left Y-Axis Autoscale",                  
+                "type": "boolean",                  
+                "default": true              
+            },              
+            "yAxisLeftMinScale": {                  
+                "title": "Left Y-Axis Min-Value",                  
+                "type": "number",                  
+                "default": 0              
+            },              
+            "yAxisLeftMaxScale": {                  
+                "title": "Left Y-Axis Max-Value",                  
+                "type": "number",                  
+                "default": 100              
+            },              
+            "yAxisRightAutoScale": {                  
+                "title": "Right Y-Axis Autoscale",                  
+                "type": "boolean",                  
+                "default": true              
+            },              
+            "yAxisRightMinScale": {                  
+                "title": "Right Y-Axis Min-Value",                  
+                "type": "number",                  
+                "default": 0              
+            },              
+            "yAxisRightMaxScale": {                  
+                "title": "Right Y-Axis Max-Value",                  
+                "type": "number",                  
+                "default": 100              
+            },              
+            "annotations": {                  
+                "title": "Annotations",                  
+                "type": "array",                  
+                "minItems": 0,                  
+                "items": {                      
+                    "title": "Attribute",                      
+                    "type": "object",                      
+                    "properties": {                          
+                        "annotationsType": {                              
+                            "title": "Annotations Type",                              
+                            "type": "string",                              
+                            "enum": [ "Fixed", "Attribute" ],                              
+                            "default": "Fixed"                          
+                        },                          
+                        "fixedNumber": {                  
+                            "title": "Fixed Number",                  
+                            "type": "number",                  
+                            "default": 10              
+                        },                          
+                        "attribute": {                              
+                            "title": "Attribute",                              
+                            "type": "string"                          
+                        },                          
+                        "description": {                              
+                            "title": "Description",                              
+                            "type": "string"                         
+                         },                          
+                         "color": {                              
+                            "title": "Color",                             
+                             "type": "string",                              
+                             "enum": [ "Red", "Green", "Blue", "Yellow" ],                              
+                             "default": "Green"                          
+                        },                            
+                        "attributeType": {                              
+                            "title": "Attribute Type",                              
+                            "type": "string",                             
+                            "enum": [ "Client", "Server" ],                              
+                            "default": "Client"                          
+                        },                          
+                        "axisAssignment": {                              
+                            "title": "Axis Assignment",                              
+                            "type": "string",                             
+                            "enum": [ "Left", "Right" ],                              
+                            "default": "Left"                         
+                        }                      
+                    },                      
+                    "required": ["color"]                  
+                }              
+            }                        
+        }          
+    },      
+    "form": [ 
+        "yAxisLeftTitle",          
+        "yAxisLeftUnit",          
+        "yAxisLeftAutoScale",          
+        "yAxisLeftMinScale",          
+        "yAxisLeftMaxScale",          
+        "yAxisRightTitle",          
+        "yAxisRightUnit",          
+        "yAxisRightAutoScale",          
+        "yAxisRightMinScale",          
+        "yAxisRightMaxScale",          
+        "showDataPoints",          
+        "showPanZoomTool",          
+        "annotations"                          
+    ]  
+}

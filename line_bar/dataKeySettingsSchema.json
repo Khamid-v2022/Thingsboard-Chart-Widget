@@ -1,0 +1,81 @@
+{      
+    "schema": {          
+        "type":  "object",          
+        "title":  "DataKeySettings",          
+        "properties": {             
+             "chartType": {                  
+                "title":  "Type",                  
+                "type":  "string",                  
+                "enum": [ "Line", "Bar"],                  
+                "default ":  "Line"             
+            },              
+            "showAverage": {                  
+                "title":  "Show horizonal average line",                 
+                "type":  "boolean",                  
+                "default": false             
+            },              
+            "showMinValue": {                  
+                "title":  "Show min. Value",                  
+                "type":  "boolean",                  
+                "default ": false             
+            },              
+            "showMaxValue": {                  
+                "title":  "Show max. value",                  
+                "type":  "boolean",                  
+                "default": false             
+            },                                                     
+            "gradientColor1": {                  
+                "title":  "Gradient Color 1",                  
+                "type":  "string",                  
+                "default":  "#008a00"             
+            },              
+            "gradientColor2": {                  
+                "title":  "Gradient Color 2",                  
+                "type":  "string ",                  
+                "default":  "#008a00"             
+            },                           
+            "fillOpacity": {                  
+                "title":  "Fill Opacity",                  
+                "type":  "number",                  
+                "minimum": 0,                  
+                "maximum": 1,                  
+                "default": 0.5             
+            },              
+            "fillChart": {                  
+                "title":  "fill Chart",                  
+                "type":  "boolean",                 
+                "default": false             
+            },              
+            "axisAssignment": {                  
+                "title":  "Axis Assignment",                  
+                "type":  "string",                  
+                "enum": [ "Left", "Right"],                  
+                "default":  "Left"             
+            },              
+            "numberOfDigits": {                  
+                "title":  "Number of Digits",                  
+                "type":  "number",                  
+                "default": 1             
+            },                   
+            "required": []      
+        }         
+    },      
+    "form": [          
+        "chartType",                            
+        "showAverage",          
+        "showMinValue",          
+        "showMaxValue",                            
+        "fillChart",         
+        {              
+            "key":  "gradientColor1",              
+            "type":  "color"         
+        },         
+        {              
+            "key":  "gradientColor2",              
+            "type":  "color"         
+        },          
+        "fillOpacity",          
+        "axisAssignment",          
+        "numberOfDigits"     
+    ] 
+}
