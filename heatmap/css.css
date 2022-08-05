@@ -13,11 +13,8 @@
 }
 
 
-#echart {
+.echart-heatmap {
   position: relative;
   height: 100%;
   width: 100%;
-  overflow: hidden;
-  transform: scale(1)!important;
-  margin-top: 0px!important;
 }

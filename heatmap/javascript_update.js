@@ -5,7 +5,7 @@ var chartDom;
 var option;
 
 self.onInit = function () {
-  chartDom = $("#echart", self.ctx.$container)[0];
+  chartDom = $(".echart-heatmap", self.ctx.$container)[0];
   myChart = echarts.init(chartDom);
   self.onResize();
 };
@@ -105,7 +105,7 @@ function draw() {
 
     series.push(seriesElement);
   }
-  console.log(min, max);
+
   option = {
     tooltip: {
       position: "bottom",
@@ -117,6 +117,8 @@ function draw() {
     grid: {
       height: "50%",
       top: "10%",
+      left: "0%",
+      containLabel: true,
     },
     xAxis: {
       type: "category",
@@ -130,6 +132,9 @@ function draw() {
       data: yAxis_legend,
       splitArea: {
         show: true,
+      },
+      axisLabel: {
+        rotate: 30,
       },
     },
     visualMap: {
@@ -154,15 +159,8 @@ self.onDataUpdated = function () {
 };
 
 self.onResize = function () {
-  let maxWidth = self.ctx.height / 0.55;
-  let width = self.ctx.width;
-  if (maxWidth < width) width = self.ctx.height / 0.55;
-
-  $("#echart", self.ctx.$container)[0].style.transform =
-    "scale(" + width / 600 + ")";
-
-  $("#echart", self.ctx.$container)[0].style.marginTop = width * -0.05 + "px";
   draw();
+  myChart.resize();
   self.onDataUpdated();
 };
 
