@@ -1,0 +1,23 @@
+{
+    "schema": {
+        "type": "object",
+        "title": "Settings",
+        "properties": {
+            "title": {
+                "title": "Weather forecast",
+                "type": "boolean",
+                "default": true
+            },
+            "city": {
+                "title": "Location",
+                "type": "string",
+                "default": "London"
+            }
+               
+        }
+    },
+    "form": [
+        "title",
+        "city"
+    ]
+}

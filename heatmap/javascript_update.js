@@ -117,7 +117,7 @@ function draw() {
     grid: {
       height: "50%",
       top: "10%",
-      left: "0%",
+      left: "5%",
       containLabel: true,
     },
     xAxis: {
@@ -134,7 +134,7 @@ function draw() {
         show: true,
       },
       axisLabel: {
-        rotate: 30,
+        //   rotate: 30,
       },
     },
     visualMap: {

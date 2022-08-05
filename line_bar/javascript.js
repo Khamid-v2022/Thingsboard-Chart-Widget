@@ -30,54 +30,54 @@ self.onInit = function() {
         }     
     }           
     
-    if (clientAttributesToPoll !== '') {         
-        var entityId = self.ctx.datasources[0].entityId;         
-        var entity = { 
-            entityType: 'DEVICE', 
-            id: entityId         
-        } 
+    if (clientAttributesToPoll !== "") {
+      var entityId = self.ctx.datasources[0].entityId;
+      var entity = {
+        entityType: "DEVICE",
+        id: entityId,
+      };
 
-        self.ctx.attributeService.getEntityAttributes(
-            entity, 
-            'CLIENT_SCOPE',
-            clientAttributesToPoll).subscribe((attributes) => {  
-                //Add Annotations that has been defined as ClientAttributes 
-                annotiatons = []; 
-                for (var i = 0; i < attributes.length; i++) {
-                        
-                    for (var j = 0; j < self.ctx.settings.annotations.length; j++){         
-                        if (self.ctx.settings.annotations[j].attribute == attributes[i].key) {     
-                            clientAttributes.push({
-                                'key': attributes[i].key, 
-                                'value': parseFloat(attributes[i].value),
-                                'color': self.ctx.settings.annotations[j].color,
-                                'axisAssignment': self.ctx.settings.annotations[j].axisAssignment
-                            });
-                        }  
-                    }     
-                }    
-            })     
-    }     
+      // self.ctx.attributeService.getEntityAttributes(
+      //     entity,
+      //     'CLIENT_SCOPE',
+      //     clientAttributesToPoll).subscribe((attributes) => {
+      //         //Add Annotations that has been defined as ClientAttributes
+      //         annotiatons = [];
+      //         for (var i = 0; i < attributes.length; i++) {
 
-    if (serverAttributesToPoll !== '') {          
-        entityId = self.ctx.datasources[0].entityId;         
-        entity = { entityType: 'DEVICE', id: entityId };         
-        self.ctx.attributeService.getEntityAttributes(entity, 'SERVER_SCOPE', serverAttributesToPoll).subscribe((attributes) => {  
-            //Add Annotations that has been defined as ClientAttributes 
-            annotiatons = [];  
-            for (var i = 0; i < attributes.length; i++) {           
-                for (var j = 0; j < self.ctx.settings.annotations.length; j++) {         
-                    if (self.ctx.settings.annotations[j].attribute ==  attributes[i].key) {                
-                        serverAttributes.push( { 
-                            'key': attributes[i].key,         
-                            'value': parseFloat(attributes[i].value),         
-                            'color': self.ctx.settings.annotations[j].color,     
-                            'axisAssignment': self.ctx.settings.annotations[j].axisAssignment     
-                        });          
-                    }              
-                } 
-            }         
-        }) 
+      //             for (var j = 0; j < self.ctx.settings.annotations.length; j++){
+      //                 if (self.ctx.settings.annotations[j].attribute == attributes[i].key) {
+      //                     clientAttributes.push({
+      //                         'key': attributes[i].key,
+      //                         'value': parseFloat(attributes[i].value),
+      //                         'color': self.ctx.settings.annotations[j].color,
+      //                         'axisAssignment': self.ctx.settings.annotations[j].axisAssignment
+      //                     });
+      //                 }
+      //             }
+      //         }
+      //     })
+    }
+
+    if (serverAttributesToPoll !== "") {
+      entityId = self.ctx.datasources[0].entityId;
+      entity = { entityType: "DEVICE", id: entityId };
+      // self.ctx.attributeService.getEntityAttributes(entity, 'SERVER_SCOPE', serverAttributesToPoll).subscribe((attributes) => {
+      //     //Add Annotations that has been defined as ClientAttributes
+      //     annotiatons = [];
+      //     for (var i = 0; i < attributes.length; i++) {
+      //         for (var j = 0; j < self.ctx.settings.annotations.length; j++) {
+      //             if (self.ctx.settings.annotations[j].attribute ==  attributes[i].key) {
+      //                 serverAttributes.push( {
+      //                     'key': attributes[i].key,
+      //                     'value': parseFloat(attributes[i].value),
+      //                     'color': self.ctx.settings.annotations[j].color,
+      //                     'axisAssignment': self.ctx.settings.annotations[j].axisAssignment
+      //                 });
+      //             }
+      //         }
+      //     }
+      // })
     }        
     self.onResize();   
 }      
