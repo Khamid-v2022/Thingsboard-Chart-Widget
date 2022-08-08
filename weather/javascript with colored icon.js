@@ -7,14 +7,19 @@ var api_key = "f73956b8d22c2efb182297ee32143507";
 var api_url = "https://api.openweathermap.org/data/2.5/forecast";
 const DIFF_KELVIN = 273.15;
 
-// ex:  http://openweathermap.org/img/wn/10d@2x.png
-var icon_url = "http://openweathermap.org/img/wn/";
+// ex:
+var icon_url = "https://echarts.apache.org/examples";
 
 var weather_data = [];
 var max_temp = 0;
 var min_temp = 0;
 
 var ROOT_PATH = "https://echarts.apache.org/examples";
+const weatherIcons = {
+  Rain: ROOT_PATH + "/data/asset/img/weather/showers_128.png",
+  Clear: ROOT_PATH + "/data/asset/img/weather/sunny_128.png",
+  Clouds: ROOT_PATH + "/data/asset/img/weather/cloudy_128.png",
+};
 
 self.onInit = function () {
   // get weather from API
@@ -26,7 +31,7 @@ self.onInit = function () {
     self.onResize();
   });
 
-  chartDom = $(".echart-weather", self.ctx.$container)[0];
+  chartDom = $(".echart-weather-icon", self.ctx.$container)[0];
   myChart = echarts.init(chartDom);
 
   self.onResize();
@@ -38,6 +43,15 @@ function draw() {
       max_temp = (entry.main.temp - DIFF_KELVIN).toFixed(2);
     if (min_temp > entry.main.temp - DIFF_KELVIN)
       min_temp = (entry.main.temp - DIFF_KELVIN).toFixed(2);
+    // weather condition check
+    var icon_id = parseInt(entry.weather[0].icon);
+    var weather = "";
+
+    if (icon_id <= 2) weather = weatherIcons["Clear"];
+    else if ((icon_id > 2 && icon_id <= 4) || icon_id == 50)
+      weather = weatherIcons["Clouds"];
+    else weather = weatherIcons["Rain"];
+
     return [
       entry.dt_txt,
       (entry.main.temp - DIFF_KELVIN).toFixed(2),
@@ -45,7 +59,7 @@ function draw() {
       (entry.main.temp_max - DIFF_KELVIN).toFixed(2),
       entry.weather[0].main,
       entry.weather[0].description,
-      icon_url + entry.weather[0].icon + "@2x.png",
+      weather,
     ];
   });
 
@@ -59,7 +73,7 @@ function draw() {
     weatherIcon: 6,
   };
 
-  const weatherIconSize = 60;
+  const weatherIconSize = 45;
 
   const renderWeather = function (param, api) {
     const point = api.coord([api.value(dims.time), 0]);
